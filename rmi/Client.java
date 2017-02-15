@@ -1,5 +1,5 @@
 
-package example.hello;
+package cloudSource;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
