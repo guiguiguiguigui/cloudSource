@@ -3,7 +3,7 @@
  * hello.java
  */
 
-package cloudSource.hello;
+//package cloudSource.hello;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

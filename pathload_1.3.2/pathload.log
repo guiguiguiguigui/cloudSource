@@ -235,3 +235,126 @@ Receiving Fleet 1
 
 	*****  RESULT *****
 Measurement terminated due to frequent CS @ sender/receiver.
+
+
+
+
+Receiver Sophias-MacBook-Pro.local starts measurements at sender 149.130.195.152 on Wed Mar  1 13:34:37 2017 
+  Maximum packet size          :: 1363 bytes
+  send latency @sndr           :: 6 usec
+  recv latency @rcvr           :: 5 usec
+  Minimum packet spacing       :: 12 usec
+  Max rate(max_pktsz/min_time) :: 927.33Mbps
+  ADR [.]                      :: 14.77Mbps
+  Grey bandwidth resolution    :: 0.74
+
+Receiving Fleet 0
+  Fleet Parameter(req)  :: R=14.83Mbps, L=200B, K=100packets, T=123usec
+  Lossrate per stream   :: :0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0
+  # of CS @ sndr        :: : 0: 0: 0: 0: 0: 0: 0: 0: 0: 0: 0
+  # of CS @ rcvr        :: :21:12:13:11:21:23:19:26:21:14:16
+  # of DS @ rcvr        :: :66:81:56:48:67:61:67:60:66:70:75
+  Fleet Parameter(act)  :: R=14.83Mbps, L=200B, K=100packets, T=123usec
+  PCT metric/stream[ 4] :: 0.88:0.88:0.71:0.29:
+  PDT metric/stream[ 4] :: 1.00:1.00:0.87:0.29:
+  PCT Trend/stream [ 4] :: IIIN
+  PDT Trend/stream [ 4] :: IIIN
+  Trend per stream [ 4] :: IIIN
+
+Receiving Fleet 1
+  Fleet Parameter(req)  :: R=14.83Mbps, L=200B, K=100packets, T=123usec
+  Lossrate per stream   :: :0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0
+  # of CS @ sndr        :: : 0: 0: 0: 0: 0: 0: 0: 0: 0: 0: 0
+  # of CS @ rcvr        :: :14: 9:15:10:19:22: 8:23:19:20: 9
+  # of DS @ rcvr        :: :70:79:77:82:66:66:86:63:62:68:86
+  Fleet Parameter(act)  :: R=14.83Mbps, L=200B, K=100packets, T=123usec
+  PCT metric/stream[ 2] :: 0.57:0.57:
+  PDT metric/stream[ 2] :: 0.63:0.23:
+  PCT Trend/stream [ 2] :: UU
+  PDT Trend/stream [ 2] :: IN
+  Trend per stream [ 2] :: IN
+
+	*****  RESULT *****
+Measurement terminated due to frequent CS @ sender/receiver.
+
+
+
+
+Receiver Sophias-MacBook-Pro.local starts measurements at sender 149.130.195.152 on Wed Mar  1 13:43:54 2017 
+  Maximum packet size          :: 1363 bytes
+  send latency @sndr           :: 7 usec
+  recv latency @rcvr           :: 7 usec
+  Minimum packet spacing       :: 14 usec
+  Max rate(max_pktsz/min_time) :: 794.86Mbps
+  ADR [.]                      :: 6.94Mbps
+  Grey bandwidth resolution    :: 0.35
+
+Receiving Fleet 0
+  Fleet Parameter(req)  :: R=6.94Mbps, L=200B, K=100packets, T=263usec
+  Lossrate per stream   :: :0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0
+  # of CS @ sndr        :: : 0: 0: 0: 0: 0: 0: 0: 0: 0: 0: 0
+  # of CS @ rcvr        :: :10: 8:14:17:16:14:23:15:12: 8:12
+  # of DS @ rcvr        :: :84:71:82:80:61:80:66:73:65:90:85
+  Fleet Parameter(act)  :: R=6.94Mbps, L=200B, K=100packets, T=263usec
+  PCT metric/stream[ 1] :: 0.86:
+  PDT metric/stream[ 1] :: 1.00:
+  PCT Trend/stream [ 1] :: I
+  PDT Trend/stream [ 1] :: I
+  Trend per stream [ 1] :: I
+
+Receiving Fleet 1
+  Fleet Parameter(req)  :: R=6.94Mbps, L=200B, K=100packets, T=263usec
+  Lossrate per stream   :: :0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0
+  # of CS @ sndr        :: : 0: 0: 0: 0: 0: 0: 0: 0: 0: 0: 0
+  # of CS @ rcvr        :: :22:16:17:22:19:10: 6:15:10:18: 3
+  # of DS @ rcvr        :: :50:77:71:73:66:71:88:74:87:71:96
+  Fleet Parameter(act)  :: R=6.94Mbps, L=200B, K=100packets, T=263usec
+  PCT metric/stream[ 1] :: 0.57:
+  PDT metric/stream[ 1] :: 0.90:
+  PCT Trend/stream [ 1] :: U
+  PDT Trend/stream [ 1] :: I
+  Trend per stream [ 1] :: I
+
+	*****  RESULT *****
+Measurement terminated due to frequent CS @ sender/receiver.
+
+
+
+
+Receiver Sophias-MacBook-Pro.local starts measurements at sender 149.130.143.251 on Wed Mar  1 13:44:57 2017 
+  Maximum packet size          :: 1363 bytes
+  send latency @sndr           :: 7 usec
+  recv latency @rcvr           :: 6 usec
+  Minimum packet spacing       :: 14 usec
+  Max rate(max_pktsz/min_time) :: 794.86Mbps
+  ADR [.]                      :: 15.92Mbps
+  Grey bandwidth resolution    :: 0.80
+
+Receiving Fleet 0
+  Fleet Parameter(req)  :: R=15.86Mbps, L=200B, K=100packets, T=115usec
+  Lossrate per stream   :: :0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0
+  # of CS @ sndr        :: : 0: 0: 0: 0: 0: 0: 0: 0: 0: 0: 0
+  # of CS @ rcvr        :: :14:14:18:16:22:18:18:15:16:15:10
+  # of DS @ rcvr        :: :78:77:75:74:68:67:73:78:75:74:84
+  Fleet Parameter(act)  :: R=15.86Mbps, L=200B, K=100packets, T=115usec
+  PCT metric/stream[ 0] :: 
+  PDT metric/stream[ 0] :: 
+  PCT Trend/stream [ 0] :: 
+  PDT Trend/stream [ 0] :: 
+  Trend per stream [ 0] :: 
+
+Receiving Fleet 1
+  Fleet Parameter(req)  :: R=15.86Mbps, L=200B, K=100packets, T=115usec
+  Lossrate per stream   :: :0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0:0.0
+  # of CS @ sndr        :: : 0: 0: 0: 0: 0: 0: 0: 0: 0: 0: 0
+  # of CS @ rcvr        :: :18:28:15:16:18:18:13:15:13:15:11
+  # of DS @ rcvr        :: :74:60:77:73:71:74:77:71:79:76:75
+  Fleet Parameter(act)  :: R=15.86Mbps, L=200B, K=100packets, T=115usec
+  PCT metric/stream[ 1] :: 0.29:
+  PDT metric/stream[ 1] :: 0.40:
+  PCT Trend/stream [ 1] :: N
+  PDT Trend/stream [ 1] :: U
+  Trend per stream [ 1] :: N
+
+	*****  RESULT *****
+Measurement terminated due to frequent CS @ sender/receiver.
