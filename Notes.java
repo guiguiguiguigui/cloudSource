@@ -14,7 +14,8 @@ public class Notes {
         Process p;
         try {
             p = Runtime.getRuntime().exec(command);
-            p.waitFor();
+            //p.waitFor(); 
+            System.out.println("started excecuting: " + command);
             BufferedReader reader =
                             new BufferedReader(new InputStreamReader(p.getInputStream()));
 
@@ -34,35 +35,36 @@ public class Notes {
 
     public static void main(String[] args) {
  
-        InetAddress ip;
-        String hostname;
-        try {
+        
 
-            if (args[0].equals("send")){
+        if (args[0].equals("send")){
+            InetAddress ip;
+            String hostname;
+            try {
                 ip = InetAddress.getLocalHost();
                 hostname = ip.getHostName();
                 System.out.println("Your current IP address : " + ip);
                 System.out.println("Your current Hostname : " + hostname);
 
+
                 //At SEND,
-                String send = executeCommand("./pathload_1.3.2/pathload_snd &");
+                String send = executeCommand("./pathload_1.3.2/pathload_snd");
 
                 System.out.println(send);
-
-            } else if (args[0].equals("receive") && args.length == 2 ){
-
-                 //at RECEIVE
-                String recieve = executeCommand("./pathload_1.3.2/pathload_rcv -s "+ args[1]);
-
-                System.out.println(recieve);
-
-            } else {
-                System.out.println("please give valid input");
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
             }
 
-        } catch (UnknownHostException e) {
- 
-            e.printStackTrace();
+        } else if (args[0].equals("receive") && args.length == 2 ){
+
+             //at RECEIVE
+            String recieve = executeCommand("./pathload_1.3.2/pathload_rcv -s "+ args[1]);
+            System.out.println(recieve);
+
+        } else {
+            System.out.println("please give valid input");
         }
+
+        
     }
 }
