@@ -48,9 +48,9 @@ public class Notes {
 
                 System.out.println(send);
 
-            } else if (args[0].equals("recieve") && args.length == 2 ){
+            } else if (args[0].equals("receive") && args.length == 2 ){
 
-                 //at RECIEVE
+                 //at RECEIVE
                 String recieve = executeCommand("./pathload_1.3.2/pathload_rcv -s "+ args[1]);
 
                 System.out.println(recieve);
