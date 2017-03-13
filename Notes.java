@@ -20,6 +20,7 @@ public class Notes {
 
                         String line = "";
             while ((line = reader.readLine())!= null) {
+                System.out.println(line);
                 output.append(line + "\n");
             }
 
