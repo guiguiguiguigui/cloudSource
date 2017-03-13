@@ -55,7 +55,7 @@ public class Server implements Experiment {
             }
 
         } catch (Exception e) {
-            System.err.println("Reciever exception: " + e.toString());
+            System.err.println("Receiver exception: " + e.toString());
             e.printStackTrace();
         }
 
