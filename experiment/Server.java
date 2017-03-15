@@ -43,8 +43,8 @@ public class Server implements Experiment {
             
             if (response){ //Sender started is true
                 String recieve = executeCommand("./pathload_1.3.2/pathload_rcv -s "+ senderIP); //start reciever 
+                // change this, and wait for the process to finish. (seperate method or boolean)
 
-                // wait until Pathload finish?
 
                 // do something
 
@@ -65,8 +65,7 @@ public class Server implements Experiment {
 
     /*------------------------------------------
       Starts a Pathload sender on this machine.
-
-      TODO
+      GOOD
     -----------------------------------------*/
     public boolean startSender() {
 
@@ -105,7 +104,6 @@ public class Server implements Experiment {
         Process p;
         try {
             p = Runtime.getRuntime().exec(command);
-            //p.waitFor(); 
             System.out.println("started excecuting: " + command);
             BufferedReader reader =
                             new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -132,7 +130,10 @@ public class Server implements Experiment {
             // Bind the remote object's stub in the registry
             Registry registry = LocateRegistry.getRegistry();
             myIP = getMyIP();
-            registry.bind(myIP, stub);
+
+            //diferentiate machines by local registry (ip) (identified at lookup), not by name
+            //because its the same application
+            registry.bind("CloudSource", stub);
 
             System.err.println("Server ready");
 
