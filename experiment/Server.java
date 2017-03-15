@@ -89,7 +89,7 @@ public class Server implements Experiment {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-        return ip
+        return ip;
     }
 
     /*------------------------------------------
