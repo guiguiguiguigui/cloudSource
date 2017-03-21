@@ -20,6 +20,9 @@ import java.net.UnknownHostException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import java.util.*;
+
+
 public class Server implements Experiment {
         
     public Server() {}
@@ -30,7 +33,7 @@ public class Server implements Experiment {
       then start a pathload receiver on this machine
       access pathload.log, extract useful information, return.
 
-      TODO: everything
+      MAYBE GOOD?
     -----------------------------------------*/
     public String experientOneRound( String senderIP ){
 
@@ -42,18 +45,26 @@ public class Server implements Experiment {
             boolean response = sender.startSender();
             
             if (response){ //Sender started is true
-                String recieve = executeCommand("./pathload_1.3.2/pathload_rcv -s "+ senderIP); //start reciever 
-                // change this, and wait for the process to finish. (seperate method or boolean)
 
+                //make sure there is no previous data in log
+                Process p1 = Runtime.getRuntime().exec("rm pathload_1.3.2/pathload.log");
+                p1.waitFor();
 
-                // do something
+                // start reciever
+                Process p = Runtime.getRuntime().exec("./pathload_1.3.2/pathload_rcv -s "+ senderIP);
+                p.waitFor();
 
-                // access pathload.log
+                // parse log file
+                Scanner reader = new Scanner(new File("pathload_1.3.2/pathload.log"));
 
-                // parse
-
+                while (reader.hasNext()) {
+                    String line = reader.nextLine();
+                    if (line.toLowerCase().contains("result")) {
+                        data = reader.nextLine().split(": ")[1]; //get the useful line.
+                        break;
+                    }
+                }
             }
-
         } catch (Exception e) {
             System.err.println("Receiver exception: " + e.toString());
             e.printStackTrace();
@@ -90,6 +101,38 @@ public class Server implements Experiment {
         }
         return ip;
     }
+
+
+
+    /*------------------------------------------
+      uses java Runtime to execute a shell command,
+      waits for the process to finish
+      returms the logs after process finishes.
+    -----------------------------------------*/
+    private static String executeCommandWait(String command) {
+
+        StringBuffer output = new StringBuffer();
+
+        Process p;
+        try {
+
+            System.out.println("started excecuting: " + command);
+            BufferedReader reader =
+                            new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+                        String line = "";
+            while ((line = reader.readLine())!= null) {
+                System.out.println(line);
+                output.append(line + "\n");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return output.toString();
+    }
+
 
     /*------------------------------------------
       uses java Runtime to execute a shell command,
