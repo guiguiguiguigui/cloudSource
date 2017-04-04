@@ -10,7 +10,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 // for startSender
-import java.io.PrintWriter;
+import java.io.*;
+
 
 //for methond getMyIP
 import java.net.InetAddress;
@@ -40,8 +41,8 @@ public class VM implements VMInterface {
         String data = "";
 
         try {
-            Registry registry = LocateRegistry.getRegistry(host);
-            Experiment sender = (Experiment) registry.lookup(senderIP); //get sender RMI object
+            Registry registry = LocateRegistry.getRegistry(senderIP);
+            VMInterface sender = (VMInterface) registry.lookup("CloudSource"); //get sender RMI object
             boolean response = sender.startSender();
             
             if (response){ //Sender started is true
@@ -82,24 +83,15 @@ public class VM implements VMInterface {
 
         String send = executeCommand("./pathload_1.3.2/pathload_snd");
 
-        PrintWriter log = new PrintWriter("pathload_sender_log.txt");
-        log.println(send);
+        try{
+            PrintWriter log = new PrintWriter("pathload_sender_log.txt");
+            log.println(send);
+        } catch (Exception e){
+            System.out.println(e);
+
+        }
 
         return true;
-    }
-
-    /*------------------------------------------
-      gets the ip of this machine.
-    -----------------------------------------*/
-    private static String getMyIP(){
-        InetAddress ip;
-        try {
-            ip = InetAddress.getLocalHost();
-            //System.out.println("Your current IP address : " + ip);
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-        return ip;
     }
 
 
@@ -115,12 +107,13 @@ public class VM implements VMInterface {
 
         Process p;
         try {
-
+            p = Runtime.getRuntime().exec(command);
             System.out.println("started excecuting: " + command);
-            BufferedReader reader =
-                            new BufferedReader(new InputStreamReader(p.getInputStream()));
+            p.waitFor();
 
-                        String line = "";
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+            String line = "";
             while ((line = reader.readLine())!= null) {
                 System.out.println(line);
                 output.append(line + "\n");
@@ -148,10 +141,8 @@ public class VM implements VMInterface {
         try {
             p = Runtime.getRuntime().exec(command);
             System.out.println("started excecuting: " + command);
-            BufferedReader reader =
-                            new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-                        String line = "";
+            BufferedReader reader =new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line = "";
             while ((line = reader.readLine())!= null) {
                 System.out.println(line);
                 output.append(line + "\n");
@@ -167,12 +158,11 @@ public class VM implements VMInterface {
     public static void main(String args[]) {
 
         try {
-            Server obj = new Server();
-            Experiment stub = (Experiment) UnicastRemoteObject.exportObject(obj, 0);
+            VM obj = new VM();
+            VMInterface stub = (VMInterface) UnicastRemoteObject.exportObject(obj, 0);
 
             // Bind the remote object's stub in the registry
             Registry registry = LocateRegistry.getRegistry();
-            myIP = getMyIP();
 
             //diferentiate machines by local registry (ip) (identified at lookup), not by name
             //because its the same application

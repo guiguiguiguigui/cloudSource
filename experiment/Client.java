@@ -10,13 +10,13 @@ public class Client {
     // assuming takes in a list of IPs
 
 
-        String vmIPs = (args.length < 1) ? null : args;
+        String[] vmIPs = (args.length < 1) ? null : args;
 
         try {
 
             String vmAIP = vmIPs[0];
             Registry vmARegistry = LocateRegistry.getRegistry(vmAIP);
-            VMInterface vmAStub = (VMInterface) registry.lookup("CloudSource");
+            VMInterface vmAStub = (VMInterface) vmARegistry.lookup("CloudSource");
 
             String response = vmAStub.getCapacityWith(vmIPs[1]);
 
