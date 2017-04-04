@@ -14,10 +14,20 @@ public class Client {
 
         try {
 
+            System.out.println("Running Master!");
+
             String vmAIP = vmIPs[0];
+
+            System.out.println("VM A IP: " + vmAIP);
+
+            System.out.println("VM B IP: " + vmIPs[1]);
+            
             Registry vmARegistry = LocateRegistry.getRegistry(vmAIP);
             VMInterface vmAStub = (VMInterface) vmARegistry.lookup("CloudSource");
 
+
+            System.out.println("successfully looked up stub, running the experiment.");
+             
             String response = vmAStub.getCapacityWith(vmIPs[1]);
 
             System.out.println("response: " + response);
