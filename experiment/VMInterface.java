@@ -7,9 +7,9 @@
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface Experiment extends Remote{
+public interface VMInterface extends Remote{
   
-  String experientOneRound( String ip ) throws  RemoteException;
+  String getCapacityWith( String ip ) throws  RemoteException;
   boolean startSender() throws RemoteException;
 
   

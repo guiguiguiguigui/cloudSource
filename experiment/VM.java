@@ -1,6 +1,6 @@
 /* CloudSource
  * Sophia Sun & Hanae Yaskawa
- * server.java
+ * VM.java
  */
 
         
@@ -23,9 +23,9 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 
-public class Server implements Experiment {
+public class VM implements VMInterface {
         
-    public Server() {}
+    public VM() {}
 
 
     /*------------------------------------------
@@ -35,7 +35,7 @@ public class Server implements Experiment {
 
       MAYBE GOOD?
     -----------------------------------------*/
-    public String experientOneRound( String senderIP ){
+    public String getCapacityWith( String senderIP ){
 
         String data = "";
 

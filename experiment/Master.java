@@ -2,9 +2,9 @@
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class Client {
+public class Master {
 
-    private Client() {}
+    private Master() {}
 
     public static void main(String[] args) {
 
@@ -19,7 +19,7 @@ public class Client {
         String host = (args.length < 1) ? null : args[0];
         try {
             Registry registry = LocateRegistry.getRegistry(host);
-            Hello stub = (Hello) registry.lookup("Hello");
+            VMInterface stub = (VMInterface) registry.lookup("CloudSource");
             String response = stub.sayHello();
             System.out.println("response: " + response);
         } catch (Exception e) {
