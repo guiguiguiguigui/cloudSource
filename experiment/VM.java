@@ -33,8 +33,6 @@ public class VM implements VMInterface {
       tells @param senderIP to start a pathload sender.
       then start a pathload receiver on this machine
       access pathload.log, extract useful information, return.
-
-      MAYBE GOOD?
     -----------------------------------------*/
     public String getCapacityWith( String senderIP ){
 
@@ -80,55 +78,37 @@ public class VM implements VMInterface {
 
     /*------------------------------------------
       Starts a Pathload sender on this machine.
-      GOOD
     -----------------------------------------*/
     public boolean startSender() {
 
-        String send = executeCommand("./pathload_1.3.2/pathload_snd");
-
-        System.out.println("Started pathload sender.");
         try{
-            PrintWriter log = new PrintWriter(new File("pathload_sender_log.txt"));
-            log.println(send);
+            Sender sender1 = new Sender();
+            // Starts a new thread
+            sender1.start();
+            System.out.println("Started pathload sender.");
+            return true;
+
         } catch (Exception e){
-            System.out.println(e);
-
-        }
-
-        return true;
+            return false;
+        }   
     }
-
 
 
     /*------------------------------------------
-      uses java Runtime to execute a shell command,
-      waits for the process to finish
-      returms the logs after process finishes.
+      Thread class for sender
     -----------------------------------------*/
-    private static String executeCommandWait(String command) {
+    public class Sender extends Thread {
 
-        StringBuffer output = new StringBuffer();
-
-        Process p;
-        try {
-            p = Runtime.getRuntime().exec(command);
-            System.out.println("started excecuting: " + command);
-            p.waitFor();
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-            String line = "";
-            while ((line = reader.readLine())!= null) {
-                System.out.println(line);
-                output.append(line + "\n");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        @Override
+        public void run() {
+                String send  = executeCommand("./pathload_1.3.2/pathload_snd");
+                /*
+                PrintWriter log = new PrintWriter(new File("pathload_sender_log.txt"));
+                log.println(send);
+                */
         }
-
-        return output.toString();
     }
+
 
 /*------------------------------------------
       gets the ip of this machine.
@@ -193,7 +173,7 @@ public class VM implements VMInterface {
             //because its the same application
             registry.bind("CloudSource", stub);
 
-            System.err.println("Server ready");
+            System.out.println("Server ready");
 
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString());
