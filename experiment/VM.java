@@ -88,7 +88,7 @@ public class VM implements VMInterface {
 
         System.out.println("Started pathload sender.");
         try{
-            PrintWriter log = new PrintWriter("pathload_sender_log.txt");
+            PrintWriter log = new PrintWriter(new File("pathload_sender_log.txt"));
             log.println(send);
         } catch (Exception e){
             System.out.println(e);
@@ -184,6 +184,8 @@ public class VM implements VMInterface {
             String myIP = getMyIP();
             
             System.out.println("setting rmi server hostname to "+ myIP);
+            
+            // tried to solve connection problem, not sure if it works
             System.setProperty("java.rmi.server.hostname",myIP);
 
 
