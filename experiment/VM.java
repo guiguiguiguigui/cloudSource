@@ -130,6 +130,19 @@ public class VM implements VMInterface {
         return output.toString();
     }
 
+/*------------------------------------------
+      gets the ip of this machine.
+    -----------------------------------------*/
+    private static String getMyIP(){
+        String ip="";
+        try {
+            ip = InetAddress.getLocalHost().getHostAddress();
+            System.out.println("Your current IP address : " + ip);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return ip;
+    }
 
     /*------------------------------------------
       uses java Runtime to execute a shell command,
@@ -167,6 +180,12 @@ public class VM implements VMInterface {
 
             // Bind the remote object's stub in the registry
             Registry registry = LocateRegistry.getRegistry();
+
+            String myIP = getMyIP();
+            
+            System.out.println("setting rmi server hostname to "+ myIP);
+            System.setProperty("java.rmi.server.hostname",myIP);
+
 
             //diferentiate machines by local registry (ip) (identified at lookup), not by name
             //because its the same application
