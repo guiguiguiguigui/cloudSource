@@ -38,7 +38,7 @@ public class VM implements VMInterface {
     -----------------------------------------*/
     public String getCapacityWith( String senderIP ){
 
-        String data = "";
+        String data = "no data";
 
         try {
             Registry registry = LocateRegistry.getRegistry(senderIP);
@@ -50,13 +50,16 @@ public class VM implements VMInterface {
                 //make sure there is no previous data in log
                 Process p1 = Runtime.getRuntime().exec("rm pathload_1.3.2/pathload.log");
                 p1.waitFor();
+                System.out.println("deleting old Pathload Logs");
 
                 // start reciever
                 Process p = Runtime.getRuntime().exec("./pathload_1.3.2/pathload_rcv -s "+ senderIP);
+                System.out.println("Started Pathload reciever");
                 p.waitFor();
 
                 // parse log file
                 Scanner reader = new Scanner(new File("pathload_1.3.2/pathload.log"));
+                System.out.println("Parcing pathload log");
 
                 while (reader.hasNext()) {
                     String line = reader.nextLine();
@@ -83,6 +86,7 @@ public class VM implements VMInterface {
 
         String send = executeCommand("./pathload_1.3.2/pathload_snd");
 
+        System.out.println("Started pathload sender.");
         try{
             PrintWriter log = new PrintWriter("pathload_sender_log.txt");
             log.println(send);
