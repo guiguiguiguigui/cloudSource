@@ -45,6 +45,7 @@ public class VM implements VMInterface {
             
             if (response){ //Sender started is true
 
+                System.out.println("Sender booted successfully. Starting reciever process.");
                 //make sure there is no previous data in log
                 Process p1 = Runtime.getRuntime().exec("rm pathload_1.3.2/pathload.log");
                 p1.waitFor();
