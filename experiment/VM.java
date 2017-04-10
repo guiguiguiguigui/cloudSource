@@ -47,12 +47,14 @@ public class VM implements VMInterface {
 
                 System.out.println("Sender booted successfully. Starting reciever process.");
                 //make sure there is no previous data in log
-                Process p1 = Runtime.getRuntime().exec("rm pathload_1.3.2/pathload.log");
+                Process p1 = Runtime.getRuntime().exec("rm pathload.log");
                 p1.waitFor();
                 System.out.println("deleting old Pathload Logs");
 
                 // start reciever
                 Process p = Runtime.getRuntime().exec("./pathload_1.3.2/pathload_rcv -s "+ senderIP);
+                OutputStream recieveStream = p.getOutputStream();
+                //print out the output stream
                 System.out.println("Started Pathload reciever");
                 p.waitFor();
 
