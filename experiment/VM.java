@@ -57,7 +57,7 @@ public class VM implements VMInterface {
                 p.waitFor();
 
                 // parse log file
-                Scanner reader = new Scanner(new File("pathload_1.3.2/pathload.log"));
+                Scanner reader = new Scanner(new File("pathload.log"));
                 System.out.println("Parcing pathload log");
 
                 while (reader.hasNext()) {
