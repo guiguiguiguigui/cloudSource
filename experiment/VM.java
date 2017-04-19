@@ -53,13 +53,20 @@ public class VM implements VMInterface {
 
                 // start reciever
                 Process p = Runtime.getRuntime().exec("./pathload_1.3.2/pathload_rcv -s "+ senderIP);
-                OutputStream recieveStream = p.getOutputStream();
+                InputStream inputStream = p.getInputStream();
                 //print out the output stream
                 System.out.println("Started Pathload reciever");
                 int status = p.waitFor();
                 if (status != 0){
                     System.out.println("process terminately abnormally: ");
-                     System.out.println(recieveStream.toString());
+
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream), 1);
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        System.out.println(line);
+                    }
+                    inputStream.close();
+                    bufferedReader.close();
                 }
 
                 // parse log file
