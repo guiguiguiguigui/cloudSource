@@ -62,7 +62,7 @@ public class Master {
             PrintWriter newDataFile = new PrintWriter(new File("data.txt"));
             for (int a = 0; a< numVMs; a++){
                 for (int b = a+1; b< numVMs; b++){
-                    newDataFile.write("capacity from "+ vmIDs[b] + " to " + vmIDs[a] + " is: " + data[b][a]);
+                    newDataFile.write("capacity from "+ vmIPs[b] + " to " + vmIPs[a] + " is: " + data[b][a]);
                  }
             }
             newDataFile.close();
