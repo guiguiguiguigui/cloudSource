@@ -52,7 +52,7 @@ public class VM implements VMInterface {
                 System.out.println("deleting old Pathload Logs");
 
                 // start reciever
-                Process p = Runtime.getRuntime().exec("./pathload_1.3.2/pathload_rcv -s "+ senderIP);
+                Process p = Runtime.getRuntime().exec("../pathload_1.3.2/pathload_rcv -s "+ senderIP);
                 InputStream inputStream = p.getInputStream();
                 //print out the output stream
                 System.out.println("Started Pathload reciever");
@@ -115,7 +115,7 @@ public class VM implements VMInterface {
 
         @Override
         public void run() {
-                String send  = executeCommand("./pathload_1.3.2/pathload_snd");
+                String send  = executeCommand("../pathload_1.3.2/pathload_snd");
                 /*
                 PrintWriter log = new PrintWriter(new File("pathload_sender_log.txt"));
                 log.println(send);
