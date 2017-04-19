@@ -174,7 +174,7 @@ public class VM implements VMInterface {
 
             //diferentiate machines by local registry (ip) (identified at lookup), not by name
             //because its the same application
-            registry.bind("CloudSource", stub);
+            registry.rebind("CloudSource", stub);
 
             System.out.println("Server ready");
 
