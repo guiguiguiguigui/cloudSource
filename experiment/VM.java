@@ -58,7 +58,8 @@ public class VM implements VMInterface {
                 System.out.println("Started Pathload reciever");
                 int status = p.waitFor();
                 if (status != 0){
-                    System.out.println("process terminately abnormally");
+                    System.out.println("process terminately abnormally: ");
+                     System.out.println(recieveStream.toString());
                 }
 
                 // parse log file
