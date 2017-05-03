@@ -48,6 +48,8 @@ public class VM implements VMInterface {
 
             
             if (response){ //Sender started is true
+
+                    System.out.println("sleeping for reciever.");
                 Thread.sleep(1000);
 
                 System.out.println("Sender booted successfully. Starting reciever process.");
@@ -111,6 +113,7 @@ public class VM implements VMInterface {
                 public void actionPerformed(ActionEvent evt) {
                     //...Update the progress bar...
                     //timer.stop();
+                    System.out.println("waiting for sender.");
                     String send  = executeCommand("../pathload_1.3.2/pathload_snd");
                 }    
             });
