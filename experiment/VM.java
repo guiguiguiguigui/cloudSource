@@ -83,6 +83,7 @@ public class VM implements VMInterface {
                 while (reader.hasNext()) {
                     String line = reader.nextLine();
                     if (line.toLowerCase().contains("result")) {
+                        reader.nextLine();
                         data = reader.nextLine().split(": ")[1]; //get the useful line.
                         break;
                     }
