@@ -117,7 +117,7 @@ public class VM implements VMInterface {
                     String send  = executeCommand("../pathload_1.3.2/pathload_snd");
                 }    
             });
-
+            timer.start();
             System.out.println("Started pathload sender.");
             return true;
 
