@@ -3,7 +3,9 @@
  * VM.java
  */
 
-import javax.swing.*;        
+import javax.swing.Timer;        
+import java.awt.*;
+import java.awt.event.*;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
@@ -104,10 +106,11 @@ public class VM implements VMInterface {
             //sender1.start();
             
 
-            Timer timer = new Timer(100, new ActionListener() {
+            Timer timer;
+            timer = new Timer(100, new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
                     //...Update the progress bar...
-                    timer.stop();
+                    //timer.stop();
                     String send  = executeCommand("../pathload_1.3.2/pathload_snd");
                 }    
             });
