@@ -3,7 +3,7 @@
  * VM.java
  */
 
-        
+import javax.swing.Timer;        
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
@@ -42,8 +42,11 @@ public class VM implements VMInterface {
             Registry registry = LocateRegistry.getRegistry(senderIP);
             VMInterface sender = (VMInterface) registry.lookup("CloudSource"); //get sender RMI object
             boolean response = sender.startSender();
+
+
             
             if (response){ //Sender started is true
+                Thread.sleep(1000);
 
                 System.out.println("Sender booted successfully. Starting reciever process.");
                 //make sure there is no previous data in log
@@ -96,9 +99,19 @@ public class VM implements VMInterface {
     public boolean startSender() {
 
         try{
-            Sender sender1 = new Sender();
+            //Sender sender1 = new Sender();
             // Starts a new thread
-            sender1.start();
+            //sender1.start();
+            
+
+            Timer timer = new Timer(100, new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    //...Update the progress bar...
+                    timer.stop();
+                    String send  = executeCommand("../pathload_1.3.2/pathload_snd");
+                }    
+            });
+
             System.out.println("Started pathload sender.");
             return true;
 
