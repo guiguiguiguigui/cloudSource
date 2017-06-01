@@ -1,0 +1,1 @@
+aws ec2 stop-instances --instance-ids  "$(< existing_instances.txt)"

@@ -1,0 +1,145 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:529: checking for gcc
+configure:642: checking whether the C compiler (gcc  ) works
+configure:658: gcc -o conftest    conftest.c  1>&5
+configure:655:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+main(){return(0);}
+^
+1 warning generated.
+configure:684: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:689: checking whether we are using GNU C
+configure:698: gcc -E conftest.c
+configure:717: checking whether gcc accepts -g
+configure:775: checking host system type
+configure:911: checking for the pthreads library -lpthreads
+configure:940: gcc -o conftest -g -O2    conftest.c -lpthreads  1>&5
+configure:935:41: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                     pthread_attr_init(0); pthread_cleanup_push(0, 0);
+                                       ~^
+configure:936:44: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                     pthread_create(0,0,0,0); pthread_cleanup_pop(0); 
+                                    ~      ^
+configure:936:44: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                     pthread_create(0,0,0,0); pthread_cleanup_pop(0); 
+                                        ~  ^
+3 warnings generated.
+ld: library not found for -lpthreads
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+configure: failed program was:
+#line 931 "configure"
+#include "confdefs.h"
+#include <pthread.h>
+int main() {
+pthread_t th; pthread_join(th, 0);
+                     pthread_attr_init(0); pthread_cleanup_push(0, 0);
+                     pthread_create(0,0,0,0); pthread_cleanup_pop(0); 
+; return 0; }
+configure:900: checking whether pthreads work without any flags
+configure:940: gcc -o conftest -g -O2    conftest.c   1>&5
+configure:935:41: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                     pthread_attr_init(0); pthread_cleanup_push(0, 0);
+                                       ~^
+configure:936:44: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                     pthread_create(0,0,0,0); pthread_cleanup_pop(0); 
+                                    ~      ^
+configure:936:44: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                     pthread_create(0,0,0,0); pthread_cleanup_pop(0); 
+                                        ~  ^
+3 warnings generated.
+configure:972: checking for joinable pthread attribute
+configure:981: gcc -o conftest -g -O2    conftest.c   1>&5
+configure:1023: checking if more special flags are required for pthreads
+configure:1041: checking for cc_r
+configure:1096: checking for main in -lm
+configure:1111: gcc -o conftest -g -O2   conftest.c -lm   1>&5
+configure:1139: checking for main in -lposix4
+configure:1154: gcc -o conftest -g -O2   conftest.c -lposix4  -lm  1>&5
+ld: library not found for -lposix4
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+configure: failed program was:
+#line 1147 "configure"
+#include "confdefs.h"
+
+int main() {
+main()
+; return 0; }
+configure:1182: checking for socket in -lsocket
+configure:1201: gcc -o conftest -g -O2   conftest.c -lsocket  -lm  1>&5
+ld: library not found for -lsocket
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+configure: failed program was:
+#line 1190 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char socket();
+
+int main() {
+socket()
+; return 0; }
+configure:1229: checking for gethostbyname in -lnsl
+configure:1248: gcc -o conftest -g -O2   conftest.c -lnsl  -lm  1>&5
+ld: library not found for -lnsl
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+configure: failed program was:
+#line 1237 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char gethostbyname();
+
+int main() {
+gethostbyname()
+; return 0; }
+configure:1277: checking how to run the C preprocessor
+configure:1298: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1357: checking for ANSI C header files
+configure:1370: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1437: gcc -o conftest -g -O2   conftest.c -lm  1>&5
+configure:1432:67: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))' [-Wimplicit-function-declaration]
+if (XOR (islower (i), ISLOWER (i)) || toupper (i) != TOUPPER (i)) exit(2);
+                                                                  ^
+configure:1432:67: note: include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+1 warning generated.
+configure:1464: checking for fcntl.h
+configure:1474: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1464: checking for strings.h
+configure:1474: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1464: checking for sys/time.h
+configure:1474: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1464: checking for unistd.h
+configure:1474: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1502: checking whether time.h and sys/time.h may both be included
+configure:1516: gcc -c -g -O2  conftest.c 1>&5
+configure:1537: checking whether struct tm is in sys/time.h or time.h
+configure:1550: gcc -c -g -O2  conftest.c 1>&5
+configure:1546:20: warning: expression result unused [-Wunused-value]
+struct tm *tp; tp->tm_sec;
+               ~~  ^~~~~~
+1 warning generated.
+configure:1572: checking size of int
+configure:1591: gcc -o conftest -g -O2   conftest.c -lm  1>&5
+configure:1586:22: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf(f, "%d\n", sizeof(int));
+              ~~     ^~~~~~~~~~~
+              %lu
+1 warning generated.
+configure:1611: checking size of long
+configure:1630: gcc -o conftest -g -O2   conftest.c -lm  1>&5
+configure:1625:22: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf(f, "%d\n", sizeof(long));
+              ~~     ^~~~~~~~~~~~
+              %lu
+1 warning generated.
+configure:1572: checking for strftime
+configure:1600: gcc -o conftest -g -O2   conftest.c -lm  1>&5
+configure:1670: checking for gethostname
+configure:1698: gcc -o conftest -g -O2   conftest.c -lm  1>&5
+configure:1670: checking for gettimeofday
+configure:1698: gcc -o conftest -g -O2   conftest.c -lm  1>&5
+configure:1670: checking for socket
+configure:1698: gcc -o conftest -g -O2   conftest.c -lm  1>&5
